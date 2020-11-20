@@ -11,7 +11,7 @@ import SwiftUI
 public struct WhatsNew2: View {
     @Environment(\.presentationMode) var presentationMode
 
-    var body: some View {
+    public var body: some View {
         VStack {
             HStack (alignment: .top){
                 Spacer()

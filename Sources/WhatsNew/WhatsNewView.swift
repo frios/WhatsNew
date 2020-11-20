@@ -10,7 +10,7 @@ import SwiftUI
 
 public struct WhatsNewView: View {
     
-    var body: some View {
+    public var body: some View {
         TabView {
             WhatsNew1()
             WhatsNew2()

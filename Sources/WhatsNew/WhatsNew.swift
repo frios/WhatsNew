@@ -1,8 +1,8 @@
 import SwiftUI
 
-public struct WhatsNew {
+struct WhatsNew {
     
-    var appName: String?
+    public var appName: String?
     @Binding var savedVersion: String
     @Binding var showWhatsNew: Bool
     
