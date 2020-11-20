@@ -2,13 +2,15 @@ import SwiftUI
 
 public struct WhatsNew {
     
+    @AppStorage("savedVersion") var savedVersion: String = "1.000.000"
+
     var appName: String
-    @Binding var savedVersion: String
+//    @Binding var savedVersion: String
     @Binding var showWhatsNew: Bool
     
-    public init(appName: String, savedVersion: Binding<String>, showWhatsNew: Binding<Bool>) {
+    public init(appName: String, showWhatsNew: Binding<Bool>) {
         self.appName = appName
-        self._savedVersion = savedVersion
+//        self._savedVersion = savedVersion
         self._showWhatsNew = showWhatsNew
     }
     
