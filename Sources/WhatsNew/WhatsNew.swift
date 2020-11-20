@@ -15,14 +15,14 @@ public struct WhatsNew {
 //        self._showWhatsNew = showWhatsNew
     }
     
-    public func checkForUpdate( showWhatsNew: inout Binding<Bool> ) {
+    public func checkForUpdate( showWhatsNew: Binding<Bool> ) {
         let version = getCurrentAppVersion()
         if savedVersion == version {
             print("App is up to date!")
         } else {
             // Toogle to show WhatsNew Screen as full screen
             savedVersion = version
-            showWhatsNew = .constant(true)
+            showWhatsNew.wrappedValue = true
         }
     }
     
