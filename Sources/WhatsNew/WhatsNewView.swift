@@ -8,12 +8,14 @@
 
 import SwiftUI
 
-public struct WhatsNewView: View {
+public struct WhatsNewView<Content: View>: View {
     
     var numPages: Int
+    let content: [Content]
     
-    public init(numPages: Int){
+    public init(numPages: Int, @ViewBuilder content: () -> [Content]){
         self.numPages = numPages
+        self.content = content()
     }
         
     public var body: some View {
