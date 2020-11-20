@@ -34,8 +34,7 @@ public struct WhatsNewPage<Content: View>: View {
             Text("What's new in \(appName)?")
                 .font(.largeTitle)
                 .multilineTextAlignment(.center)
-                .padding(.top, 20)
-            Spacer()
+                .padding(.vertical, 20)
             content
             Spacer()
         }
