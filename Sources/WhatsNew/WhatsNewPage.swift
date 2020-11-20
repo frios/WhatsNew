@@ -9,10 +9,16 @@
 import SwiftUI
 
 
-public struct WhatsNewPage: View {
+public struct WhatsNewPage<Content: View>: View {
     @Environment(\.presentationMode) var presentationMode
     
+    let content: Content
+    
     var appName: String = Bundle.main.infoDictionary!["CFBundleName"] as! String
+    
+    init(content: Content){
+        self.content = content
+    }
 
     public var body: some View {
         VStack {
@@ -30,12 +36,9 @@ public struct WhatsNewPage: View {
                 .multilineTextAlignment(.center)
                 .padding(.top, 20)
             Spacer()
+            content
         }
     }
 }
 
-struct WhatsNewPage_Previews: PreviewProvider {
-    static var previews: some View {
-        WhatsNewPage()
-    }
-}
+

@@ -21,7 +21,7 @@ public struct WhatsNewView<Content: View>: View {
     public var body: some View {
         TabView {
             ForEach(0..<numPages, id: \.self) { numPages in
-                WhatsNewPage()
+                WhatsNewPage(content: content[numPages])
             }
         }
         .background(Color.white)
