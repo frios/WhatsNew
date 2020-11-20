@@ -2,9 +2,15 @@ import SwiftUI
 
 struct WhatsNew {
     
-    public var appName: String?
-    @Binding var savedVersion: String
-    @Binding var showWhatsNew: Bool
+    var appName: String
+    var savedVersion: String
+    var showWhatsNew: Bool
+    
+    public init(appName: String, savedVersion: String, showWhatsNew: Bool) {
+        self.appName = appName
+        self.savedVersion = savedVersion
+        self.showWhatsNew = showWhatsNew
+    }
     
     public func checkForUpdate() {
         let version = getCurrentAppVersion()
@@ -12,8 +18,8 @@ struct WhatsNew {
             print("App is up to date!")
         } else {
             // Toogle to show WhatsNew Screen as full screen
-            savedVersion = version
-            showWhatsNew.toggle()
+//            savedVersion = version
+//            showWhatsNew.toggle()
         }
     }
     
