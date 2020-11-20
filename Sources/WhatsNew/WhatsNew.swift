@@ -7,22 +7,22 @@ public struct WhatsNew {
     var appName: String
 //    @Binding var savedVersion: String
     
-    @Binding var showWhatsNew: Bool
+//    @Binding var showWhatsNew: Bool
     
-    public init(appName: String, showWhatsNew: Binding<Bool>) {
+    public init(appName: String){//, showWhatsNew: Binding<Bool>) {
         self.appName = appName
 //        self._savedVersion = savedVersion
-        self._showWhatsNew = showWhatsNew
+//        self._showWhatsNew = showWhatsNew
     }
     
-    public func checkForUpdate() {
+    public func checkForUpdate( showWhatsNew: inout Bool ) {
         let version = getCurrentAppVersion()
         if savedVersion == version {
             print("App is up to date!")
         } else {
             // Toogle to show WhatsNew Screen as full screen
             savedVersion = version
-            showWhatsNew.toggle()
+            showWhatsNew = true
         }
     }
     
