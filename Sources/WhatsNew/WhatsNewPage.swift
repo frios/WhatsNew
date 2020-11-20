@@ -13,11 +13,13 @@ public struct WhatsNewPage<Content: View>: View {
     @Environment(\.presentationMode) var presentationMode
     
     let content: Content
+    let pageNum : Int
     
     var appName: String = Bundle.main.infoDictionary!["CFBundleName"] as! String
     
-    init(content: Content){
+    init(content: Content, pageNum: Int){
         self.content = content
+        self.pageNum = pageNum
     }
 
     public var body: some View {
@@ -31,8 +33,8 @@ public struct WhatsNewPage<Content: View>: View {
                 })
                 .padding(.trailing)
             }
-            Text("What's new in \(appName)?")
-                .font(.largeTitle)
+            Text("What's new in \(appName)? (page \(pageNum))")
+                .font(.headline)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 20)
             content

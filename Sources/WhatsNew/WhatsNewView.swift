@@ -20,8 +20,8 @@ public struct WhatsNewView<Content: View>: View {
         
     public var body: some View {
         TabView {
-            ForEach(0..<numPages, id: \.self) { numPages in
-                WhatsNewPage(content: content[numPages])
+            ForEach(0..<numPages, id: \.self) { pageNum in
+                WhatsNewPage(content: content[pageNum], pageNum: pageNum + 1)
             }
         }
         .background(Color.white)
