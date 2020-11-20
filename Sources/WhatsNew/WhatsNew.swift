@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct WhatsNew {
+public struct WhatsNew {
     
     var appName: String
     var savedVersion: String
