@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct WhatsNewView: View {
+public struct WhatsNewView: View {
     
     var body: some View {
         TabView {

@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct WhatsNew {
+public struct WhatsNew {
     
     var appName: String?
     @Binding var savedVersion: String
     @Binding var showWhatsNew: Bool
     
-    func checkForUpdate() {
+    public func checkForUpdate() {
         let version = getCurrentAppVersion()
         if savedVersion == version {
             print("App is up to date!")
@@ -18,7 +18,7 @@ struct WhatsNew {
     }
     
     // Get current Version of the App
-    func getCurrentAppVersion() -> String {
+    public func getCurrentAppVersion() -> String {
         return "\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String).\(Bundle.main.infoDictionary?["CFBundleVersion"] as! String)"
     }
 }

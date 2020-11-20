@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct WhatsNew2: View {
+public struct WhatsNew2: View {
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
