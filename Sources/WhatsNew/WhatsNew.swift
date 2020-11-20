@@ -3,13 +3,13 @@ import SwiftUI
 public struct WhatsNew {
     
     var appName: String
-    var savedVersion: String
-    var showWhatsNew: Bool
+    @Binding var savedVersion: String
+    @Binding var showWhatsNew: Bool
     
-    public init(appName: String, savedVersion: String, showWhatsNew: Bool) {
+    public init(appName: String, savedVersion: Binding<String>, showWhatsNew: Binding<Bool>) {
         self.appName = appName
-        self.savedVersion = savedVersion
-        self.showWhatsNew = showWhatsNew
+        self._savedVersion = savedVersion
+        self._showWhatsNew = showWhatsNew
     }
     
     public func checkForUpdate() {
@@ -18,8 +18,8 @@ public struct WhatsNew {
             print("App is up to date!")
         } else {
             // Toogle to show WhatsNew Screen as full screen
-//            savedVersion = version
-//            showWhatsNew.toggle()
+            savedVersion = version
+            showWhatsNew.toggle()
         }
     }
     
