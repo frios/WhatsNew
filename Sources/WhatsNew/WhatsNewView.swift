@@ -10,11 +10,17 @@ import SwiftUI
 
 public struct WhatsNewView: View {
     
-    public init(){}
+    var numPages: Int
+    
+    public init(numPages: Int){
+        self.numPages = numPages
+    }
         
     public var body: some View {
         TabView {
-            WhatsNewPage()
+            ForEach(0..<numPages, id: \.self) { numPages in
+                WhatsNewPage()
+            }
         }
         .background(Color.white)
         .ignoresSafeArea()
@@ -22,10 +28,6 @@ public struct WhatsNewView: View {
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
     }}
 
-struct WhatsNewView_Previews: PreviewProvider {
-    static var previews: some View {
-        WhatsNewView()
-    }
-}
+
 
 
