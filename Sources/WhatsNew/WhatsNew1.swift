@@ -14,11 +14,6 @@ public struct WhatsNew1: View {
     
     var appName: String = Bundle.main.infoDictionary!["CFBundleName"] as! String
 
-//    init(appName: String){
-//        self.appName = appName
-//    }
-
-
     public var body: some View {
         VStack {
             HStack (alignment: .top){
@@ -41,6 +36,6 @@ public struct WhatsNew1: View {
 
 struct WhatsNew1_Previews: PreviewProvider {
     static var previews: some View {
-        WhatsNew1(appName: "Test")
+        WhatsNew1()
     }
 }
