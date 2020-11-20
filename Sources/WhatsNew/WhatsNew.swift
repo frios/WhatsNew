@@ -6,6 +6,7 @@ public struct WhatsNew {
 
     var appName: String
 //    @Binding var savedVersion: String
+    
     @Binding var showWhatsNew: Bool
     
     public init(appName: String, showWhatsNew: Binding<Bool>) {
