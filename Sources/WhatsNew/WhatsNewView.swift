@@ -9,16 +9,10 @@
 import SwiftUI
 
 public struct WhatsNewView: View {
-    
-    public var appName: String
-    
-    public init(appName: String){
-        self.appName = appName
-    }
-    
+        
     public var body: some View {
         TabView {
-            WhatsNew1(appName: appName)
+            WhatsNew1()
             WhatsNew2()
         }
         .background(Color.white)
@@ -29,7 +23,7 @@ public struct WhatsNewView: View {
 
 struct WhatsNewView_Previews: PreviewProvider {
     static var previews: some View {
-        WhatsNewView(appName: "Test")
+        WhatsNewView()
     }
 }
 
