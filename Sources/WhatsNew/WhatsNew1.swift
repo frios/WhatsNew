@@ -8,8 +8,16 @@
 
 import SwiftUI
 
+
 public struct WhatsNew1: View {
     @Environment(\.presentationMode) var presentationMode
+    
+    var appName: String
+
+    init(appName: String){
+        self.appName = appName
+    }
+
 
     public var body: some View {
         VStack {
@@ -22,7 +30,7 @@ public struct WhatsNew1: View {
                 })
                 .padding(.trailing)
             }
-            Text("What's new in mFood Vendor?")
+            Text("What's new in \(appName)?")
                 .font(.largeTitle)
                 .multilineTextAlignment(.center)
                 .padding(.top, 20)
@@ -33,6 +41,6 @@ public struct WhatsNew1: View {
 
 struct WhatsNew1_Previews: PreviewProvider {
     static var previews: some View {
-        WhatsNew1()
+        WhatsNew1(appName: "Test")
     }
 }

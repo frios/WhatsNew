@@ -4,16 +4,7 @@ public struct WhatsNew {
     
     @AppStorage("savedVersion") var savedVersion: String = "1.000.000"
 
-    var appName: String
-//    @Binding var savedVersion: String
-    
-//    @Binding var showWhatsNew: Bool
-    
-    public init(appName: String){//, showWhatsNew: Binding<Bool>) {
-        self.appName = appName
-//        self._savedVersion = savedVersion
-//        self._showWhatsNew = showWhatsNew
-    }
+    public init(){}
     
     public func checkForUpdate( showWhatsNew: Binding<Bool> ) {
         let version = getCurrentAppVersion()
