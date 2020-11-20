@@ -3,8 +3,8 @@ import SwiftUI
 struct WhatsNew {
     
     var appName: String?
-    @Binding savedVersion: String
-    @Binding showWhatsNew: Bool
+    @Binding var savedVersion: String
+    @Binding var showWhatsNew: Bool
     
     func checkForUpdate() {
         let version = getCurrentAppVersion()
