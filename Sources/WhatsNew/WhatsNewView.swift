@@ -14,8 +14,7 @@ public struct WhatsNewView: View {
         
     public var body: some View {
         TabView {
-            WhatsNew1()
-            WhatsNew2()
+            WhatsNewPage()
         }
         .background(Color.white)
         .ignoresSafeArea()

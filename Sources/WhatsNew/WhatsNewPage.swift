@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-public struct WhatsNew1: View {
+public struct WhatsNewPage: View {
     @Environment(\.presentationMode) var presentationMode
     
     var appName: String = Bundle.main.infoDictionary!["CFBundleName"] as! String
@@ -34,8 +34,8 @@ public struct WhatsNew1: View {
     }
 }
 
-struct WhatsNew1_Previews: PreviewProvider {
+struct WhatsNewPage_Previews: PreviewProvider {
     static var previews: some View {
-        WhatsNew1()
+        WhatsNewPage()
     }
 }
