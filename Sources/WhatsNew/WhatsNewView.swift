@@ -10,6 +10,8 @@ import SwiftUI
 
 public struct WhatsNewView: View {
     
+    public init(){}
+    
     public var body: some View {
         TabView {
             WhatsNew1()
