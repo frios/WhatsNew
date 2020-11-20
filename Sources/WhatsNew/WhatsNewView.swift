@@ -13,9 +13,9 @@ public struct WhatsNewView<Content: View>: View {
     var numPages: Int
     let content: [Content]
     
-    public init(numPages: Int, @ViewBuilder content: () -> [Content]){
+    public init(numPages: Int, content: [Content]){
         self.numPages = numPages
-        self.content = content()
+        self.content = content
     }
         
     public var body: some View {
