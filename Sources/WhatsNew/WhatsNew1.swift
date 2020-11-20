@@ -12,11 +12,11 @@ import SwiftUI
 public struct WhatsNew1: View {
     @Environment(\.presentationMode) var presentationMode
     
-    var appName: String
+    var appName: String = Bundle.main.infoDictionary!["CFBundleName"] as! String
 
-    init(appName: String){
-        self.appName = appName
-    }
+//    init(appName: String){
+//        self.appName = appName
+//    }
 
 
     public var body: some View {
