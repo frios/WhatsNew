@@ -3,8 +3,14 @@ import SwiftUI
 public struct WhatsNew {
     
     @AppStorage("savedVersion") var savedVersion: String = "1.000.000"
+    
+    let fontColor: Color
+    let pageColor: Color
 
-    public init(){}
+    public init(pageColor: Color = .white, fontColor: Color = .primary){
+        self.pageColor = pageColor
+        self.fontColor = fontColor
+    }
     
     public func checkForUpdate( showWhatsNew: Binding<Bool> ) {
         let version = getCurrentAppVersion()

@@ -11,22 +11,24 @@ import SwiftUI
 public struct WhatsNewView<Content: View>: View {
     
     let content: [Content]
-    let pageColor: Color
-    let fontColor: Color
+    let properties: WhatsNew
+//    let pageColor: Color
+//    let fontColor: Color
     
-    public init(content: [Content], pageColor: Color = .white, fontColor: Color = .primary){
+    public init(properties: WhatsNew, content: [Content]){
+        self.properties = properties
         self.content = content
-        self.pageColor = pageColor
-        self.fontColor = fontColor
+//        self.pageColor = pageColor
+//        self.fontColor = fontColor
     }
         
     public var body: some View {
         TabView {
             ForEach(0..<content.count, id: \.self) { pageNum in
-                WhatsNewPage(content: content[pageNum], pageNum: pageNum + 1, totalPages: content.count, fontColor: fontColor)
+                WhatsNewPage(content: content[pageNum], pageNum: pageNum + 1, totalPages: content.count, properties: properties)
             }
         }
-        .background(pageColor)
+        .background(properties.pageColor)
         .ignoresSafeArea()
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))

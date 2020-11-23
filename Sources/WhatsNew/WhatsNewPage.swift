@@ -7,23 +7,23 @@
 //
 
 import SwiftUI
-
+import WhatsNew
 
 public struct WhatsNewPage<Content: View>: View {
     @Environment(\.presentationMode) var presentationMode
     
     let content: Content
     let pageNum : Int
+    let properties: WhatsNew
     let totalPages: Int
-    let fontColor: Color
      
     var appName: String = Bundle.main.infoDictionary!["CFBundleName"] as! String
     
-    init(content: Content, pageNum: Int, totalPages: Int, fontColor: Color){
+    init(content: Content, pageNum: Int, totalPages: Int, properties: WhatsNew){
         self.content = content
         self.pageNum = pageNum
         self.totalPages = totalPages
-        self.fontColor = fontColor
+        self.properties = properties
     }
 
     public var body: some View {
@@ -52,7 +52,7 @@ public struct WhatsNewPage<Content: View>: View {
             Spacer()
         }
         .padding(.horizontal, 10)
-        .foregroundColor(fontColor)
+        .foregroundColor(properties.fontColor)
     }
 }
 
