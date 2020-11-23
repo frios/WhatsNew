@@ -35,6 +35,7 @@ public struct WhatsNewPage<Content: View>: View {
                 }, label: {
                     Image(systemName: "xmark")
                 })
+                .foregroundColor(.blue)
                 .padding(.trailing)
             }
             .padding(.top, 10)
