@@ -41,7 +41,9 @@ public struct WhatsNewPage<Content: View>: View {
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 20)
             
-            content
+            VStack (alignment: .leading){
+                content
+            }
             
             Spacer()
         }
