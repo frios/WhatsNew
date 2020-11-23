@@ -14,12 +14,14 @@ public struct WhatsNewPage<Content: View>: View {
     
     let content: Content
     let pageNum : Int
+    let totalPages: Int
     
     var appName: String = Bundle.main.infoDictionary!["CFBundleName"] as! String
     
-    init(content: Content, pageNum: Int){
+    init(content: Content, pageNum: Int, totalPages: Int){
         self.content = content
         self.pageNum = pageNum
+        self.totalPages = totalPages
     }
 
     public var body: some View {
@@ -33,7 +35,7 @@ public struct WhatsNewPage<Content: View>: View {
                 })
                 .padding(.trailing)
             }
-            Text("What's new in \(appName)? (page \(pageNum))")
+            Text(totalPages > 1 ? "What's new in \(appName)? \n(page \(pageNum))": "What's new in \(appName)?")
                 .font(.headline)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 20)

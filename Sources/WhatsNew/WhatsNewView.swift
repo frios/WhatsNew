@@ -10,18 +10,16 @@ import SwiftUI
 
 public struct WhatsNewView<Content: View>: View {
     
-//    var numPages: Int
     let content: [Content]
     
     public init(content: [Content]){
-//        self.numPages = numPages
         self.content = content
     }
         
     public var body: some View {
         TabView {
             ForEach(0..<content.count, id: \.self) { pageNum in
-                WhatsNewPage(content: content[pageNum], pageNum: pageNum + 1)
+                WhatsNewPage(content: content[pageNum], pageNum: pageNum + 1, totalPages: content.count)
             }
         }
         .background(Color.white)
