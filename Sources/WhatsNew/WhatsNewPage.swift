@@ -35,11 +35,14 @@ public struct WhatsNewPage<Content: View>: View {
                 })
                 .padding(.trailing)
             }
+            
             Text(totalPages > 1 ? "What's new in \(appName)? \n(page \(pageNum))": "What's new in \(appName)?")
                 .font(.headline)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 20)
+            
             content
+            
             Spacer()
         }
     }
