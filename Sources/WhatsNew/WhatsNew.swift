@@ -28,3 +28,5 @@ public struct WhatsNew {
         return "\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String).\(Bundle.main.infoDictionary?["CFBundleVersion"] as! String)"
     }
 }
+
+
