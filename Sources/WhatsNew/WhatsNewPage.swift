@@ -40,7 +40,8 @@ public struct WhatsNewPage<Content: View>: View {
             Text(totalPages > 1 ? "What's new in \(appName)? \n(page \(pageNum))": "What's new in \(appName)?")
                 .font(.title3)
                 .multilineTextAlignment(.center)
-                .padding(.vertical, 20)
+                .padding(.top, 10)
+                .padding(.bottom, 20)
             
             content
                 .frame(maxWidth: .infinity, alignment: .leading)
