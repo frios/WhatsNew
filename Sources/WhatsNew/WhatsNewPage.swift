@@ -26,7 +26,7 @@ public struct WhatsNewPage<Content: View>: View {
 
     public var body: some View {
         VStack (alignment: .leading) {
-            HStack (alignment: .top){
+            HStack {
                 Spacer()
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
@@ -40,7 +40,6 @@ public struct WhatsNewPage<Content: View>: View {
                 .font(.title3)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 20)
-                .padding(.horizontal, -10)
             
             content
             
