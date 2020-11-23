@@ -45,7 +45,7 @@ public struct WhatsNewPage<Content: View>: View {
             
             Spacer()
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 8)
     }
 }
 
