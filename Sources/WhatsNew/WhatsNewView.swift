@@ -11,9 +11,11 @@ import SwiftUI
 public struct WhatsNewView<Content: View>: View {
     
     let content: [Content]
+    let pageColor: Color
     
-    public init(content: [Content]){
+    public init(content: [Content], pageColor: Color = .white){
         self.content = content
+        self.pageColor = pageColor
     }
         
     public var body: some View {
@@ -22,7 +24,7 @@ public struct WhatsNewView<Content: View>: View {
                 WhatsNewPage(content: content[pageNum], pageNum: pageNum + 1, totalPages: content.count)
             }
         }
-        .background(Color.white)
+        .background(pageColor)
         .ignoresSafeArea()
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
