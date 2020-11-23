@@ -12,8 +12,8 @@ public struct WhatsNewView<Content: View>: View {
     
     let content: [Content]
     
-    public init(content: [Content]){
-        self.content = content
+    public init(@ViewBuilder content: () ->[Content]){
+        self.content = content()
     }
         
     public var body: some View {
@@ -26,7 +26,8 @@ public struct WhatsNewView<Content: View>: View {
         .ignoresSafeArea()
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-    }}
+    }
+}
 
 
 
