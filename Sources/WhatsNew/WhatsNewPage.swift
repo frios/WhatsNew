@@ -25,7 +25,7 @@ public struct WhatsNewPage<Content: View>: View {
     }
 
     public var body: some View {
-        VStack {
+        VStack (alignment: .leading) {
             HStack (alignment: .top){
                 Spacer()
                 Button(action: {
@@ -37,7 +37,7 @@ public struct WhatsNewPage<Content: View>: View {
             }
             
             Text(totalPages > 1 ? "What's new in \(appName)? \n(page \(pageNum))": "What's new in \(appName)?")
-                .font(.headline)
+                .font(.title)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 20)
             
