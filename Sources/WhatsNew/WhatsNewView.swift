@@ -10,17 +10,17 @@ import SwiftUI
 
 public struct WhatsNewView<Content: View>: View {
     
-    let content: Content
+    let content: [Content]
     
-    public init(@ViewBuilder content: () ->Content){
+    public init(@ViewBuilder content: () -> [Content]){
         self.content = content()
     }
         
     public var body: some View {
         TabView {
-//            ForEach(0..<content.count, id: \.self) { pageNum in
-//                WhatsNewPage(content: content[pageNum], pageNum: pageNum + 1, totalPages: content.count)
-//            }
+            ForEach(0..<content.count, id: \.self) { pageNum in
+                WhatsNewPage(content: content[pageNum], pageNum: pageNum + 1, totalPages: content.count)
+            }
         }
         .background(Color.white)
         .ignoresSafeArea()
