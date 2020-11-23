@@ -40,6 +40,7 @@ public struct WhatsNewPage<Content: View>: View {
                 .font(.title)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 20)
+                .padding(.horizontal, -8)
             
             content
             
