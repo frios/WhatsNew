@@ -15,13 +15,15 @@ public struct WhatsNewPage<Content: View>: View {
     let content: Content
     let pageNum : Int
     let totalPages: Int
+    let fontColor: Color
      
     var appName: String = Bundle.main.infoDictionary!["CFBundleName"] as! String
     
-    init(content: Content, pageNum: Int, totalPages: Int){
+    init(content: Content, pageNum: Int, totalPages: Int, fontColor: Color){
         self.content = content
         self.pageNum = pageNum
         self.totalPages = totalPages
+        self.fontColor = fontColor
     }
 
     public var body: some View {
@@ -49,6 +51,7 @@ public struct WhatsNewPage<Content: View>: View {
             Spacer()
         }
         .padding(.horizontal, 10)
+        .foregroundColor(fontColor)
     }
 }
 

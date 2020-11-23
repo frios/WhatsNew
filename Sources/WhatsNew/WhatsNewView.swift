@@ -12,16 +12,18 @@ public struct WhatsNewView<Content: View>: View {
     
     let content: [Content]
     let pageColor: Color
+    let fontColor: Color
     
-    public init(content: [Content], pageColor: Color = .white){
+    public init(content: [Content], pageColor: Color = .white, fontColor: Color = .primary){
         self.content = content
         self.pageColor = pageColor
+        self.fontColor = fontColor
     }
         
     public var body: some View {
         TabView {
             ForEach(0..<content.count, id: \.self) { pageNum in
-                WhatsNewPage(content: content[pageNum], pageNum: pageNum + 1, totalPages: content.count)
+                WhatsNewPage(content: content[pageNum], pageNum: pageNum + 1, totalPages: content.count, fontColor: fontColor)
             }
         }
         .background(pageColor)
