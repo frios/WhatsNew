@@ -13,7 +13,7 @@ public struct WhatsNewView<Content: View>: View {
     let content: [Content]
     let pageColor: Color
     
-    public init(content: [Content], pageColor: Color = .white){
+    public init(content: [Content], pageColor: Color = .primary){
         self.content = content
         self.pageColor = pageColor
     }
@@ -25,7 +25,6 @@ public struct WhatsNewView<Content: View>: View {
             }
         }
         .background(pageColor)
-//        .ignoresSafeArea()
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
     }
