@@ -25,7 +25,7 @@ public struct WhatsNewView<Content: View>: View {
             }
         }
         .background(pageColor)
-        .ignoresSafeArea()
+//        .ignoresSafeArea()
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
     }
