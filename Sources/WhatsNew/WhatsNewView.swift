@@ -13,7 +13,7 @@ public struct WhatsNewView<Content: View>: View {
     let content: [Content]
     let pageColor: Color
     
-    public init(content: [Content], pageColor: Color = .primary){
+    public init(content: [Content], pageColor: Color = .secondary){
         self.content = content
         self.pageColor = pageColor
     }

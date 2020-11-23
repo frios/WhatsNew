@@ -35,6 +35,7 @@ public struct WhatsNewPage<Content: View>: View {
                 })
                 .padding(.trailing)
             }
+            .padding(.top, 10)
             
             Text(totalPages > 1 ? "What's new in \(appName)? \n(page \(pageNum))": "What's new in \(appName)?")
                 .font(.title3)
