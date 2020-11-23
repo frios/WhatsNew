@@ -42,7 +42,7 @@ public struct WhatsNewPage<Content: View>: View {
                 .padding(.vertical, 20)
             
             content
-                .frame(width: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
             
             Spacer()
         }
