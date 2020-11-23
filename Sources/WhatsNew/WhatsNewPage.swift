@@ -25,7 +25,7 @@ public struct WhatsNewPage<Content: View>: View {
     }
 
     public var body: some View {
-        VStack (alignment: .leading) {
+        VStack {
             HStack {
                 Spacer()
                 Button(action: {
