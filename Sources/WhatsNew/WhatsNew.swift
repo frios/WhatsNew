@@ -8,13 +8,13 @@ public struct WhatsNew {
     
     public func checkForUpdate( showWhatsNew: Binding<Bool> ) {
         let version = getCurrentAppVersion()
-        if savedVersion == version {
-            print("App is up to date!")
-        } else {
+//        if savedVersion == version {
+//            print("App is up to date!")
+//        } else {
             // Toogle to show WhatsNew Screen as full screen
             savedVersion = version
             showWhatsNew.wrappedValue = true
-        }
+//        }
     }
     
     // Get current Version of the App
