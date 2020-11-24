@@ -12,6 +12,7 @@ public class WhatsNew: ObservableObject {
     
     public func checkForUpdate( showWhatsNew: Binding<Bool> ) {
         let currentVersion = getCurrentAppVersion()
+        print("Current Version: \(currentVersion)\nSaved Version: \(savedVersion)")
         if savedVersion < currentVersion {
             //save the current version to saved version
             savedVersion = currentVersion
