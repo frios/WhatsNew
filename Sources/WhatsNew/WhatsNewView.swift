@@ -12,14 +12,10 @@ public struct WhatsNewView<Content: View>: View {
     
     let content: [Content]
     let properties: WhatsNew
-//    let pageColor: Color
-//    let fontColor: Color
     
     public init(properties: WhatsNew, content: [Content]){
         self.properties = properties
         self.content = content
-//        self.pageColor = pageColor
-//        self.fontColor = fontColor
     }
         
     public var body: some View {
