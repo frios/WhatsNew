@@ -1,18 +1,14 @@
 import SwiftUI
 
-public struct WhatsNew {
+public class WhatsNew: ObservableObject {
     
     @AppStorage("savedVersion") var savedVersion: String = "1.000.000"
     
-    let fontColor: Color
-    let pageColor: Color
-    let alwaysShow: Bool
+    public var fontColor = Color.white
+    public var pageColor = Color.primary
+    public var alwaysShow = false
 
-    public init(pageColor: Color = .white, fontColor: Color = .primary, alwaysShow: Bool = false) {
-        self.pageColor = pageColor
-        self.fontColor = fontColor
-        self.alwaysShow = alwaysShow
-    }
+    public init() {}
     
     public func checkForUpdate( showWhatsNew: Binding<Bool> ) {
         let version = getCurrentAppVersion()
