@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import WhatsNew
 
 public struct WhatsNewPage<Content: View>: View {
     @Environment(\.presentationMode) var presentationMode
