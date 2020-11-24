@@ -8,7 +8,7 @@ public class WhatsNew: ObservableObject {
     public var pageColor = Color.primary
     public var alwaysShow = false
 
-    public init() {}
+    public init() { }
     
     public func checkForUpdate( showWhatsNew: Binding<Bool> ) {
         let version = getCurrentAppVersion()
