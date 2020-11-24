@@ -10,19 +10,21 @@ import SwiftUI
 
 public struct WhatsNewPage<Content: View>: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var properties: WhatsNew
+
     
     let content: Content
     let pageNum : Int
-    let properties: WhatsNew
+//    let properties: WhatsNew
     let totalPages: Int
      
     var appName: String = Bundle.main.infoDictionary!["CFBundleName"] as! String
     
-    init(content: Content, pageNum: Int, totalPages: Int, properties: WhatsNew){
+    init(content: Content, pageNum: Int, totalPages: Int){
         self.content = content
         self.pageNum = pageNum
         self.totalPages = totalPages
-        self.properties = properties
+//        self.properties = properties
     }
 
     public var body: some View {
