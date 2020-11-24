@@ -19,6 +19,7 @@ public class WhatsNew: ObservableObject {
             showWhatsNew.wrappedValue = true
         } else if savedVersion > currentVersion {
             print("App is behind!")
+            savedVersion = currentVersion
         } else {
             print("App is up to date!")
             if alwaysShow {
