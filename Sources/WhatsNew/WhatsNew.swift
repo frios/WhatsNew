@@ -12,7 +12,7 @@ public class WhatsNew: ObservableObject {
     
     public func checkForUpdate( showWhatsNew: Binding<Bool> ) {
         let version = getCurrentAppVersion()
-        if savedVersion < version {
+        if savedVersion <= version {
             print("App is up to date!")
             if alwaysShow {
                 showWhatsNew.wrappedValue = true
