@@ -10,14 +10,15 @@ public class WhatsNew: ObservableObject {
 
     public init() { }
     
+    //check the currentVersion against the saved version
     public func checkForUpdate( showWhatsNew: Binding<Bool> ) {
         let currentVersion = getCurrentAppVersion()
         print("Current Version: \(currentVersion)\nSaved Version: \(savedVersion)")
         if savedVersion < currentVersion {
-            //save the current version to saved version
             savedVersion = currentVersion
-            // Toogle to show WhatsNew Screen as full screen
             showWhatsNew.wrappedValue = true
+        } else if savedVersion > currentVersion {
+            print("App is behind!")
         } else {
             print("App is up to date!")
             if alwaysShow {
