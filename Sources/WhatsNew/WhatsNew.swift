@@ -24,7 +24,7 @@ public struct WhatsNew {
     }
     
     // Get current Version of the App
-    public func getCurrentAppVersion() -> String {
+    func getCurrentAppVersion() -> String {
         return "\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String).\(Bundle.main.infoDictionary?["CFBundleVersion"] as! String)"
     }
 }
