@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct FullScreenHeader<Content: View>: View {
+public struct WhatsNewHeader<Content: View>: View {
     @Environment(\.presentationMode) var presentationMode
     
     var appName: String = Bundle.main.infoDictionary!["CFBundleName"] as! String

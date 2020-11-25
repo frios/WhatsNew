@@ -24,10 +24,11 @@ Instantiate a WhatsNew class. Use the (alwaysShow: true) parameter to always dis
 ```
 
 
-Create the content for each page you want displayed
+Create the content for each page you want displayed. e.g.
 
 ```
-    var page1: some View {
+struct Page1: View {
+    var body: some View {
         VStack (alignment: .leading){
             Text("Here is a list of new features:")
                 .padding(.bottom, 10)
@@ -40,13 +41,17 @@ Create the content for each page you want displayed
             BulletPointView(text: "Feature 7")
         }
     }
+    
+}
 
-    var page2: some View {
+struct Page2: View {
+    var body: some View {
         Text("Goodbye World")
     }
+}
 ```
 
-Add the .fullScreenCover modifier and .onAppear modifier to your ContentView() call
+Add the .fullScreenCover modifier and .onAppear modifier to your ContentView() call.
 
 ```
 var body: some Scene {
@@ -54,8 +59,12 @@ var body: some Scene {
         ContentView()
         .fullScreenCover(isPresented: $showWhatsNew, content: {
             WhatsNewView {
-                page1()
-                page2()
+                WhatsNewHeader { //optional wrapping view to add X close box and "What's new in app" text
+                    page1()
+                }
+                WhatsNewHeader {
+                    page2()
+                }
             }
         })
         .onAppear(perform: {
