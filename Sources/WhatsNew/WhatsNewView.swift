@@ -12,19 +12,18 @@ public struct WhatsNewView<Content: View>: View {
     
     @EnvironmentObject var properties: WhatsNew
     
-    let content: [Content]
-//    let properties: WhatsNew
+    let content: Content
     
-    public init(properties: WhatsNew, content: [Content]){
-//        self.properties = properties
-        self.content = content
+    public init(@ViewBuilder contentProvider: () -> Content){
+        self.content = contentProvider()
     }
         
     public var body: some View {
         TabView {
-            ForEach(0..<content.count, id: \.self) { pageNum in
-                WhatsNewPage(content: content[pageNum], pageNum: pageNum + 1, totalPages: content.count)
-            }
+            content
+//            ForEach(0..<content.count, id: \.self) { pageNum in
+//                WhatsNewPage(content: content[pageNum], pageNum: pageNum + 1, totalPages: content.count)
+//            }
         }
         .background(properties.pageColor)
         .ignoresSafeArea()

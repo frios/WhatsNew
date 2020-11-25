@@ -15,7 +15,6 @@ public struct WhatsNewPage<Content: View>: View {
     
     let content: Content
     let pageNum : Int
-//    let properties: WhatsNew
     let totalPages: Int
      
     var appName: String = Bundle.main.infoDictionary!["CFBundleName"] as! String
@@ -24,7 +23,6 @@ public struct WhatsNewPage<Content: View>: View {
         self.content = content
         self.pageNum = pageNum
         self.totalPages = totalPages
-//        self.properties = properties
     }
 
     public var body: some View {
