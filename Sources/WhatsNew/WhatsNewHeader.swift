@@ -39,7 +39,6 @@ public struct WhatsNewHeader<Content: View>: View {
                 .padding(.bottom, 20)
 
             content
-                .frame(maxWidth: .infinity)
             
             Spacer()
         }

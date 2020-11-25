@@ -41,7 +41,6 @@ struct Page1: View {
             BulletPointView(text: "Feature 7")
         }
     }
-    
 }
 
 struct Page2: View {
@@ -60,10 +59,10 @@ var body: some Scene {
         .fullScreenCover(isPresented: $showWhatsNew, content: {
             WhatsNewView {
                 WhatsNewHeader { //optional wrapping view to add X close box and "What's new in app" text
-                    page1()
+                    Page1()
                 }
                 WhatsNewHeader {
-                    page2()
+                    Page2()
                 }
             }
         })
