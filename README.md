@@ -1,7 +1,7 @@
 # WhatsNew
 
-This package is a simple way of adding What's New pages to your app. The number of pages
-is dynamically calculated based on the number of items in the Content array passed to the package.
+This package is a simple way of adding What's New pages to your app. The pages
+are dynamically created based on the number of items passed to the WhatsNewView.
 
 How to use:
 
