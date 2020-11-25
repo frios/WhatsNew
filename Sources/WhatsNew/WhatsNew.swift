@@ -4,11 +4,11 @@ public class WhatsNew: ObservableObject {
     
     @AppStorage("savedVersion") var savedVersion: String = "1.000.000"
     
-//    public var fontColor = Color.primary
-//    public var pageColor = Color.white
-    public var alwaysShow = false
+    var alwaysShow = false
 
-    public init() { }
+    public init(alwaysShow: Bool = false) {
+        self.alwaysShow = alwaysShow
+    }
     
     //check the currentVersion against the saved version
     public func checkForUpdate( showWhatsNew: Binding<Bool> ) {
