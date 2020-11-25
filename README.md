@@ -17,18 +17,10 @@ In your @main struct, create a state variable to control display of WhatsNew pag
     @State var showWhatsNew = false
 ```
 
-Instantiate a WhatsNew class.
+Instantiate a WhatsNew class. Use the (alwaysShow: true) parameter to always display WhatsNew content for testing
 
 ```
     let whatsNew = WhatsNew()
-```
-
-Set any properties on the object that you need set. The properties have common sense defaults so its OK to leave them be.
-
-```
-    whatNew.alwaysShow = true
-    whatsNew.pageColor = .black
-    whatNew.fontColor = .white
 ```
 
 
@@ -61,9 +53,10 @@ var body: some Scene {
     WindowGroup {
         ContentView()
         .fullScreenCover(isPresented: $showWhatsNew, content: {
-            let content = [AnyView(page1), AnyView(page2)]
-            WhatsNewView (content: content)
-                .environmentObject(whatsNew)
+            WhatsNewView {
+                page1()
+                page2()
+            }
         })
         .onAppear(perform: {
             whatsNew.checkForUpdate(showWhatsNew: $showWhatsNew)
