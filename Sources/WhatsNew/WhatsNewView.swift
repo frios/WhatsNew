@@ -10,7 +10,7 @@ import SwiftUI
 
 public struct WhatsNewView<Content: View>: View {
     
-    @EnvironmentObject var properties: WhatsNew
+//    @EnvironmentObject var properties: WhatsNew
     
     let content: Content
     
@@ -25,7 +25,7 @@ public struct WhatsNewView<Content: View>: View {
 //                WhatsNewPage(content: content[pageNum], pageNum: pageNum + 1, totalPages: content.count)
 //            }
         }
-        .background(properties.pageColor)
+//        .background(properties.pageColor)
         .ignoresSafeArea()
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))

@@ -4,8 +4,8 @@ public class WhatsNew: ObservableObject {
     
     @AppStorage("savedVersion") var savedVersion: String = "1.000.000"
     
-    public var fontColor = Color.primary
-    public var pageColor = Color.white
+//    public var fontColor = Color.primary
+//    public var pageColor = Color.white
     public var alwaysShow = false
 
     public init() { }
