@@ -32,7 +32,11 @@ public struct WhatsNewHeader<Content: View>: View {
             }
             .padding(.top, 10)
             
-            Text("What's new in \(appName)?")
+            VStack (alignment: .center) {
+                Text("What's new in")
+                Text("\(appName)?")
+                    .fontWeight(.bold)
+            }
                 .font(.title3)
                 .multilineTextAlignment(.center)
                 .padding(.top, 10)
