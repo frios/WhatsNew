@@ -21,8 +21,8 @@ public struct WhatsNewView<Content: View>: View {
             content
         }
         .ignoresSafeArea()
-//        .tabViewStyle(PageTabViewStyle())
-//        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+        .tabViewStyle(PageTabViewStyle())
+        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
     }
 }
 
