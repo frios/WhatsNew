@@ -37,7 +37,7 @@ public struct WhatsNewHeader<Content: View>: View {
                 Text("\(appName)?")
                     .fontWeight(.bold)
             }
-                .font(.title3)
+                .font(.title2)
                 .multilineTextAlignment(.center)
                 .padding(.top, 10)
                 .padding(.bottom, 20)
