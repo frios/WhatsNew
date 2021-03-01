@@ -15,7 +15,7 @@ public class WhatsNew: ObservableObject {
         let currentVersion = getCurrentAppVersion()
         print("Current Version: \(currentVersion)\nSaved Version: \(savedVersion)")
         if alwaysShow {
-            showWhatsNew.wrappedValue = true
+            showWhatsNew.wrappedValue = alwaysShow
             return
         }
         
@@ -27,7 +27,6 @@ public class WhatsNew: ObservableObject {
             savedVersion = currentVersion
         } else {
             print("App is up to date!")
-            
         }
     }
     
