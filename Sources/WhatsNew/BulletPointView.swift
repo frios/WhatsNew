@@ -21,7 +21,7 @@ public struct BulletPointView: View {
             },
             icon: {
                 Image (systemName: "circle.fill")
-                    .font(.caption2)
+                    .font(.system(size: 8.0))
             }
         )
     }
