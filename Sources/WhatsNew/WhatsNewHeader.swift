@@ -30,7 +30,7 @@ public struct WhatsNewHeader<Content: View>: View {
                     .font(.title)
                     .multilineTextAlignment(.center)
                     .padding(.top, 50)
-
+                
                 content
             }
             

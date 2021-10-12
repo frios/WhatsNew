@@ -39,9 +39,8 @@ import WhatsNew
 
 @main
 struct PackageTesterApp: App {
+    let whatsNew = WhatsNew(alwaysShow: true)
     @State private var showWhatsNew = false
-
-    let whatsNew = WhatsNew(alwaysShow: false)
 
     var body: some Scene {
         WindowGroup {
@@ -51,11 +50,17 @@ struct PackageTesterApp: App {
                 })
                 .sheet(isPresented: $showWhatsNew) {
                     WhatsNewView {
-                        WhatsNewPageView()
+                        WhatsNewHeader { //first page
+                            WhatsNewPageView()
+                        }
+                        WhatsNewHeader { //optional second page, etc.
+                            WhatsNewPageView2()
+                        }
                     }
                 }
         }
     }
+}
 
 ```
 
