@@ -10,7 +10,7 @@ import SwiftUI
 public struct WhatsNewHeader<Content: View>: View {
     @Environment(\.presentationMode) var presentationMode
     
-    var appName: String = Bundle.main.infoDictionary!["CFBundleDisplayName"] as! String
+    var appName: String = Bundle.main.infoDictionary!["CFBundleDisplayName"] as? String ?? "New App"
     
     let content: Content
 
@@ -20,31 +20,33 @@ public struct WhatsNewHeader<Content: View>: View {
 
     public var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Image(systemName: "xmark")
-                })
-                .foregroundColor(.blue)
-                .padding(.trailing)
-            }
-            .padding(.top, 10)
-            
-            VStack (alignment: .center) {
-                Text("What's new in")
-                Text("\(appName)?")
-                    .fontWeight(.bold)
-            }
-                .font(.title2)
-                .multilineTextAlignment(.center)
-                .padding(.top, 10)
-                .padding(.bottom, 20)
+            ScrollView {
+                VStack (alignment: .center) {
+                    Text("What's New")
+                        .fontWeight(.bold)
+                    Text("in \(appName)")
+                        .fontWeight(.bold)
+                }
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 50)
 
-            content
+                content
+            }
             
             Spacer()
+            
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }, label: {
+                Text("Continue")
+                    .foregroundColor(.white)
+                    .background(RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                    .fill(Color("AccentColor"))
+                                    .frame(width: 300, height: 40))
+            })
+            .padding(.bottom, 30)
+
         }
         .padding(.horizontal, 10)
     }

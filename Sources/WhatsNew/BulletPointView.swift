@@ -8,27 +8,35 @@
 import SwiftUI
 
 public struct BulletPointView: View {
-    let text: String
+    let title: String
+    let image: Image
+    let text : String
     
-    public init(text: String) {
+    public init(title: String, image: Image, text: String) {
+        self.title = title
+        self.image = image
         self.text = text
     }
     
     public var body: some View {
-        Label(
-            title: {
+        HStack (alignment: .center){
+            image
+                .font(.title2)
+                .foregroundColor(Color("AccentColor"))
+            VStack (alignment: .leading, spacing: 4){
+                Text(title)
+                    .fontWeight(.semibold)
                 Text(text)
-            },
-            icon: {
-                Image (systemName: "circle.fill")
-                    .font(.system(size: 8.0))
+                    .foregroundColor(.secondary)
             }
-        )
+            .font(.subheadline)
+            .padding(.bottom, 6)
+        }
     }
 }
 
 struct BulletPointView_Previews: PreviewProvider {
     static var previews: some View {
-        BulletPointView(text: "Test")
+        BulletPointView(title: "Test", image: Image (systemName: "paintbrush.fill"), text: "This is a test of the whats new bullet point")
     }
 }

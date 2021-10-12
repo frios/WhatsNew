@@ -18,7 +18,9 @@ public struct WhatsNewView<Content: View>: View {
         
     public var body: some View {
         TabView {
-            content
+            WhatsNewHeader {
+                content
+            }
         }
         .ignoresSafeArea()
         .tabViewStyle(PageTabViewStyle())
