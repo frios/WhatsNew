@@ -1,3 +1,11 @@
+//
+//  WhatsNew.swift
+//
+//
+//  Created by Ferdinand G. Rios on 11/25/20.
+//  Copyright © 2020-21 Ferdinand G. Rios. All rights reserved.
+//
+
 import SwiftUI
 
 public class WhatsNew: ObservableObject {

@@ -5,9 +5,9 @@ are dynamically created based on the number of items passed to the WhatsNewView.
 
 How to use:
 
-1) In your Asset Catalog, set your AccentColor.
+1) In your Asset Catalog, set your AccentColor. In your target's General Settings, make sure your app Display Name is set as you want it.
 
-2) Create the content for each whats new page you want displayed. You can use What's New BulletPoint struct to add bullet points with images, bold titles and explanatory text. e.g.
+2) Create the content for each What's New page you want displayed. You can use What's New BulletPoint struct to add bullet points with images, bold titles and explanatory text. e.g.
 
 ```
 struct WhatsNewPageView: View {

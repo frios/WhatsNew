@@ -1,9 +1,11 @@
 //
 //  BulletPointView.swift
-//  mFood Vendor
 //
-//  Created by Ferdinand Rios on 11/23/20.
 //
+//  Created by Ferdinand G. Rios on 11/25/20.
+//  Copyright © 2020-21 Ferdinand G. Rios. All rights reserved.
+//
+
 
 import SwiftUI
 
@@ -12,7 +14,7 @@ public struct BulletPointView: View {
     let image: Image
     let text : String
     
-    public init(title: String, image: Image, text: String) {
+    public init(title: String = "New feature", image: Image = Image(systemName: "circle.fill"), text: String = "This is a new feature for this app.") {
         self.title = title
         self.image = image
         self.text = text
@@ -29,6 +31,7 @@ public struct BulletPointView: View {
                 Text(text)
                     .foregroundColor(.secondary)
             }
+            .multilineTextAlignment(.leading)
             .font(.subheadline)
             .padding(.bottom, 6)
         }
@@ -37,6 +40,6 @@ public struct BulletPointView: View {
 
 struct BulletPointView_Previews: PreviewProvider {
     static var previews: some View {
-        BulletPointView(title: "Test", image: Image (systemName: "paintbrush.fill"), text: "This is a test of the whats new bullet point")
+        BulletPointView()
     }
 }
