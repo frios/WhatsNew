@@ -21,23 +21,22 @@ public struct WhatsNewView<Content: View>: View {
         
     public var body: some View {
         VStack {
-            ScrollView {
-                VStack (alignment: .center) {
-                    Text("What's New")
-                        .fontWeight(.bold)
-                    Text("in \(appName)")
-                        .fontWeight(.bold)
-//                    TabView {
-                        content
-//                    }
-//                    .tabViewStyle(PageTabViewStyle())
-//                    .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                }
-                .font(.title)
-                .multilineTextAlignment(.center)
-                .padding(.top, 50)
+            VStack (alignment: .center) {
+                Text("What's New")
+                    .fontWeight(.bold)
+                Text("in \(appName)")
+                    .fontWeight(.bold)
             }
+            .font(.title)
+            .multilineTextAlignment(.center)
+            .padding(.top, 50)
             
+            TabView {
+                content
+            }
+            .tabViewStyle(PageTabViewStyle())
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
             }, label: {
