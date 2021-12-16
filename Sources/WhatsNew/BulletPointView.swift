@@ -23,7 +23,7 @@ public struct BulletPointView: View {
     public var body: some View {
         HStack (alignment: .center){
             image
-                .font(.title2)
+                .font(.title)
                 .foregroundColor(Color("AccentColor"))
             VStack (alignment: .leading, spacing: 4){
                 Text(title)
