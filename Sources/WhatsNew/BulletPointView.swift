@@ -25,10 +25,12 @@ public struct BulletPointView: View {
     public var body: some View {
         HStack (alignment: .center){
             image
+                .renderingMode(.template)
 //                .resizable()
-                .frame(width:50)
+                .frame(width:30, height: 30)
+                .imageScale(.large)
                 .scaledToFit()
-                .foregroundColor(Color("AccentColor"))
+                .foregroundColor(.accentColor)
             VStack (alignment: .leading, spacing: 4){
                 Text(title)
                     .fontWeight(.semibold)
