@@ -31,7 +31,7 @@ public struct BulletPointView: View {
                 .frame(width:50)
                 .imageScale(.large)
 //                .scaledToFit()
-                .foregroundColor(.accentColor)
+                .foregroundColor(Color("AccentColor"))
             VStack (alignment: .leading, spacing: 4){
                 Text(title)
                     .fontWeight(.semibold)
