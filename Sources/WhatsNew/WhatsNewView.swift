@@ -33,11 +33,11 @@ public struct WhatsNewView<Content: View>: View {
             
             TabView {
                 content
+                Spacer()
             }
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
 
-            Spacer()
             
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
