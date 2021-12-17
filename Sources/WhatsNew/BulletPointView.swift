@@ -9,6 +9,8 @@
 
 import SwiftUI
 
+let frameWidth = 50.0
+
 public struct BulletPointView: View {
     let title: String
     let imageName: String
@@ -24,15 +26,19 @@ public struct BulletPointView: View {
     
     public var body: some View {
         HStack (alignment: .center){
-            Image(uiImage: (UIImage(systemName: imageName) ?? UIImage(named: imageName))!)
-                .renderingMode(.template)
-                .font(.largeTitle)
-                .frame(width:50)
-                .scaledToFit()
-//                .imageScale(.large)
-                .foregroundColor(Color("AccentColor"))
-                .foregroundColor(.accentColor)
-            VStack (alignment: .leading, spacing: 4){
+            if let image = UIImage(named: imageName) {
+                Image(uiImage: image)
+                    .resizable()
+                    .renderingMode(.template)
+                    .frame(height: frameWidth * (image.size.height/image.size.width))
+                    .bulletStyle()
+            } else {
+                Image(systemName: imageName)
+                    .renderingMode(.template)
+                    .bulletStyle()
+                    .font(.title)
+            }
+             VStack (alignment: .leading, spacing: 4){
                 Text(title)
                     .fontWeight(.semibold)
                 Text(text)
@@ -54,8 +60,23 @@ struct BulletPointView_Previews: PreviewProvider {
             BulletPointView(imageName: "car.2.fill")
             BulletPointView(imageName: "switch.2")
             BulletPointView(imageName: "ellipsis")
-        }
+        }.padding()
     }
 }
 
+
+struct Bullet: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .frame(width:frameWidth)
+            .scaledToFit()
+            .foregroundColor(Color.accentColor)
+    }
+}
+
+extension View {
+    func bulletStyle() -> some View {
+        modifier(Bullet())
+    }
+}
 
