@@ -25,7 +25,7 @@ public struct BulletPointView: View {
     public var body: some View {
         HStack (alignment: .center){
             image
-                .resizable()
+//                .resizable()
                 .frame(width:30)
                 .scaledToFit()
                 .foregroundColor(Color("AccentColor"))
