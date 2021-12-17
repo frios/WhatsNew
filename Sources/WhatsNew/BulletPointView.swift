@@ -26,10 +26,11 @@ public struct BulletPointView: View {
         HStack (alignment: .center){
             image
                 .renderingMode(.template)
+                .font(.title3)
 //                .resizable()
-                .frame(width:30, height: 30)
+                .frame(width:50)
                 .imageScale(.large)
-                .scaledToFit()
+//                .scaledToFit()
                 .foregroundColor(.accentColor)
             VStack (alignment: .leading, spacing: 4){
                 Text(title)
