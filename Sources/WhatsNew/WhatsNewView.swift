@@ -37,6 +37,8 @@ public struct WhatsNewView<Content: View>: View {
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
 
+            Spacer()
+            
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
             }, label: {
