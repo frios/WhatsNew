@@ -11,27 +11,27 @@ import SwiftUI
 
 public struct BulletPointView: View {
     let title: String
-    let image: Image
+    let imageName: String
     let text : String
     
     public init(title: String = "New feature",
-                image: Image = Image(systemName: "circle.fill"),
+                imageName: String = "circle.fill",
                 text: String = "This is a new feature for this app. And this text should wrap.") {
         self.title = title
-        self.image = image
+        self.imageName = imageName
         self.text = text
     }
     
     public var body: some View {
         HStack (alignment: .center){
-            image
+            Image(uiImage: (UIImage(systemName: imageName) ?? UIImage(named: imageName))!)
                 .renderingMode(.template)
-                .font(.title3)
-//                .resizable()
+                .font(.largeTitle)
                 .frame(width:50)
-                .imageScale(.large)
-//                .scaledToFit()
+                .scaledToFit()
+//                .imageScale(.large)
                 .foregroundColor(Color("AccentColor"))
+                .foregroundColor(.accentColor)
             VStack (alignment: .leading, spacing: 4){
                 Text(title)
                     .fontWeight(.semibold)
@@ -48,12 +48,12 @@ public struct BulletPointView: View {
 struct BulletPointView_Previews: PreviewProvider {
     static var previews: some View {
         VStack (alignment: .leading){
-            BulletPointView(image: Image(systemName: "square.and.pencil"))
-            BulletPointView(image: Image(systemName: "hare.fill"))
-            BulletPointView(image: Image(systemName: "circle.fill"))
-            BulletPointView(image: Image(systemName: "car.2.fill"))
-            BulletPointView(image: Image(systemName: "switch.2"))
-            BulletPointView(image: Image(systemName: "ellipsis"))
+            BulletPointView(imageName: "square.and.pencil")
+            BulletPointView(imageName: "hare.fill")
+            BulletPointView(imageName: "circle.fill")
+            BulletPointView(imageName: "car.2.fill")
+            BulletPointView(imageName: "switch.2")
+            BulletPointView(imageName: "ellipsis")
         }
     }
 }
