@@ -19,6 +19,8 @@ struct WhatsNewPageView: View {
             BulletPointView(title: "More bugs squashed.",
                             imageName: "myTruck",
                             text: "And the hits keep coming")
+                            
+            Spacer()
         }
         .padding()
         .accentColor(Color.red)
