@@ -33,7 +33,7 @@ public struct WhatsNewView<Content: View>: View {
             
             TabView {
                 content
-                Spacer()
+//                Spacer()
             }
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
