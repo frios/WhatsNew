@@ -70,7 +70,7 @@ struct Bullet: ViewModifier {
         content
             .frame(width:frameWidth)
             .scaledToFit()
-            .foregroundColor(Color.accentColor)
+            .foregroundColor(Color("AccentColor"))
     }
 }
 
