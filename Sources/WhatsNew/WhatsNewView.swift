@@ -12,7 +12,7 @@ public struct WhatsNewView<Content: View>: View {
     
     @Environment(\.presentationMode) var presentationMode
 
-    let appName: String = Bundle.main.infoDictionary!["CFBundleName"] as? String ?? "New App"
+    let appName: String = Bundle.main.infoDictionary!["CFBundleDisplayName"] as? String ?? "New App"
     let content: Content
     
     public init(@ViewBuilder contentProvider: () -> Content){
