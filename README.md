@@ -9,7 +9,7 @@ How to use:
 
 2) Create the content for each What's New page you want displayed. You can use What's New `BulletPointView` struct to add bullet points with images, bold titles and explanatory text. The component will use whatever accent color you set for the page.
 
-```
+```swift
 struct WhatsNewPageView: View {
     var body: some View {
         VStack (alignment: .leading, spacing: 10){
@@ -26,10 +26,10 @@ struct WhatsNewPageView: View {
         .accentColor(Color.red)
     }
 }
+```
 
 ... same for each additional page
 
-```
 
 3) Import WhatsNew into your startup file.
 
@@ -39,7 +39,7 @@ struct WhatsNewPageView: View {
 
 6) Add the `.onAppear` modifier to check for updates in the version number of the app. Add the `.sheet` modifier to your `ContentView()` call to display the What's New compomnent.
 
-```
+```swift
 import SwiftUI
 import WhatsNew
 
