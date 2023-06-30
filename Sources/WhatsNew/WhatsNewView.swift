@@ -34,9 +34,10 @@ public struct WhatsNewView<Content: View>: View {
             TabView {
                 content
             }
+            #if !os(macOS)
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-
+            #endif
             
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
