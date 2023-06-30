@@ -29,6 +29,7 @@
 		EA054FB92A4E52EB0046251E /* WhatsNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
 		EA054FBD2A4E53D00046251E /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		EA054FBF2A4E544D0046251E /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../../Package.swift; sourceTree = "<group>"; };
+		EAC88E1D2A4E7A340030F8F7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				EA054FBF2A4E544D0046251E /* Package.swift */,
+				EAC88E1D2A4E7A340030F8F7 /* README.md */,
 				EA054FB62A4E52EB0046251E /* WhatsNew */,
 				EA054FA72A4E52B10046251E /* WhatsNewDemoApp.swift */,
 				EA054FBD2A4E53D00046251E /* PageView.swift */,

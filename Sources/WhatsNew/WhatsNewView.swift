@@ -12,47 +12,70 @@ public struct WhatsNewView<Content: View>: View {
     
     @Environment(\.presentationMode) var presentationMode
 
-    let appName: String = Bundle.main.infoDictionary!["CFBundleDisplayName"] as? String ?? "New App"
+    let appName: String = Bundle.main.localizedInfoDictionary?["CFBundleDisplayName"] as? String ?? "My App"
+    let multiPage: Bool
     let content: Content
     
-    public init(@ViewBuilder contentProvider: () -> Content){
+    public init(multiPage: Bool = true, @ViewBuilder contentProvider: () -> Content) {
+        self.multiPage = multiPage
         self.content = contentProvider()
     }
         
     public var body: some View {
         VStack {
             VStack (alignment: .center) {
-                Text("What's New")
-                    .fontWeight(.bold)
-                Text("in \(appName)")
+                Text(String(format:NSLocalizedString("What's New\nin %@", comment: "Dialog Title"), appName))
                     .fontWeight(.bold)
             }
             .font(.title)
             .multilineTextAlignment(.center)
             .padding(.top, 50)
             
-            TabView {
+            if multiPage {
+                TabView {
+                    content
+                }
+#if !os(macOS)
+                .tabViewStyle(.page)
+                .indexViewStyle(.page(backgroundDisplayMode: .always))
+#endif
+            } else {
                 content
+                    .padding()
             }
-            #if !os(macOS)
-            .tabViewStyle(PageTabViewStyle())
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-            #endif
             
-            Button(action: {
+            Button(NSLocalizedString("Continue", comment: "Button")) {
                 presentationMode.wrappedValue.dismiss()
-            }, label: {
-                Text("Continue")
-                    .foregroundColor(.white)
-                    .background(RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                    .fill(Color("AccentColor"))
-                                    .frame(width: 300, height: 40))
-            })
+            }
+            .foregroundColor(.white)
+            .padding()
+            .background(Color("AccentColor"))
+            .cornerRadius(12)
             .padding(.bottom, 30)
+            .buttonStyle(.plain)
         }
         .padding(.horizontal, 10)
     }
 }
 
+#if DEBUG
+struct WhatsNewView_Previews: PreviewProvider {
+    static var previews: some View {
+        WhatsNewView(multiPage: false) {
+            VStack (alignment: .leading) {
+                BulletPointView(title: "New feature",
+                                systemName: "circle.fill",
+                                text: "This is a new feature for this app. And this text should wrap.")
+                BulletPointView(title: "New feature",
+                                systemName: "square.fill",
+                                text: "This is a new feature for this app. And this text should wrap.")
+                BulletPointView(title: "New feature",
+                                systemName: "triangle.fill",
+                                text: "This is a new feature for this app. And this text should wrap.")
+            }
+        }
+    }
+}
+#endif
 
 
