@@ -51,9 +51,9 @@ struct PackageTesterApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onAppear(perform: {
+                .onAppear {
                     whatsNew.checkForUpdate(showWhatsNew: $showWhatsNew)
-                })
+                }
                 .sheet(isPresented: $showWhatsNew) {
                     WhatsNewView {
                         WhatsNewPageView()

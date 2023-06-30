@@ -14,12 +14,14 @@ public struct WhatsNewView<Content: View>: View {
 
     let appName: String = Bundle.main.localizedInfoDictionary?["CFBundleDisplayName"] as? String ?? "My App"
     let multiPage: Bool
+    let showVersion: Bool
     let content: Content
     
     private let bundle = Bundle.module
     
-    public init(multiPage: Bool = true, @ViewBuilder contentProvider: () -> Content) {
+    public init(multiPage: Bool = true, showVersion: Bool = true, @ViewBuilder contentProvider: () -> Content) {
         self.multiPage = multiPage
+        self.showVersion = showVersion
         self.content = contentProvider()
     }
         
@@ -28,6 +30,11 @@ public struct WhatsNewView<Content: View>: View {
             VStack (alignment: .center) {
                 Text(String(format:NSLocalizedString("What's New\nin %@", bundle: bundle, comment: "Dialog Title"), appName))
                     .fontWeight(.bold)
+                if showVersion, let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                    Text("v\(version)")
+                        .font(.footnote)
+                        .padding(.top)
+                }
             }
             .font(.title)
             .multilineTextAlignment(.center)
