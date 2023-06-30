@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "WhatsNew",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v15),
         .macOS(.v12)
@@ -20,8 +21,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "WhatsNew",
-            dependencies: [],
-            resources: [.process("Resources")]
+            dependencies: []
         )
     ]
 )

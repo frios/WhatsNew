@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WhatsNew
 
 struct PageView: View {
     let page: Int

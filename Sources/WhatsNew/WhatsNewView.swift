@@ -16,6 +16,8 @@ public struct WhatsNewView<Content: View>: View {
     let multiPage: Bool
     let content: Content
     
+    private let bundle = Bundle.module
+    
     public init(multiPage: Bool = true, @ViewBuilder contentProvider: () -> Content) {
         self.multiPage = multiPage
         self.content = contentProvider()
@@ -24,7 +26,7 @@ public struct WhatsNewView<Content: View>: View {
     public var body: some View {
         VStack {
             VStack (alignment: .center) {
-                Text(String(format:NSLocalizedString("What's New\nin %@", comment: "Dialog Title"), appName))
+                Text(String(format:NSLocalizedString("What's New\nin %@", bundle: bundle, comment: "Dialog Title"), appName))
                     .fontWeight(.bold)
             }
             .font(.title)
@@ -44,7 +46,7 @@ public struct WhatsNewView<Content: View>: View {
                     .padding()
             }
             
-            Button(NSLocalizedString("Continue", comment: "Button")) {
+            Button(NSLocalizedString("Continue", bundle: bundle, comment: "Button")) {
                 presentationMode.wrappedValue.dismiss()
             }
             .foregroundColor(.white)

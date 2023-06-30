@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WhatsNew
 
 @main
 struct WhatsNewDemoApp: App {
