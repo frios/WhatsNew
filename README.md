@@ -16,7 +16,7 @@ struct WhatsNewPageView: View {
     var body: some View {
         VStack (alignment: .leading, spacing: 10){
             BulletPointView(title: "We now have SEARCH!!!",
-                            systemName: "paintbrush.fill",
+                            imageName: "paintbrush.fill",
                             text: "Search to find books that have been on previous best seller lists.")
             BulletPointView(title: "More bugs squashed.",
                             imageName: "myTruck",
