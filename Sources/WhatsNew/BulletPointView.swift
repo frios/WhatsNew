@@ -13,7 +13,8 @@ let frameWidth = 50.0
 
 public struct BulletPointView: View {
     let title: String
-    let imageName: String
+    let imageName: String?
+    let systemName: String?
     let text : String
     
     public init(title: String = "New feature",
@@ -21,19 +22,40 @@ public struct BulletPointView: View {
                 text: String = "This is a new feature for this app. And this text should wrap.") {
         self.title = title
         self.imageName = imageName
+        self.systemName = nil
         self.text = text
     }
     
+    public init(title: String = "New feature",
+                systemName: String = "circle.fill",
+                text: String = "This is a new feature for this app with a system icon. And this text should wrap.") {
+        self.title = title
+        self.imageName = nil
+        self.systemName = systemName
+        self.text = text
+    }
+
     public var body: some View {
         HStack (alignment: .center){
-            if let image = UIImage(named: imageName) {
+#if os(iOS)
+            if let name = imageName, let image = UIImage(named: name) {
                 Image(uiImage: image)
                     .resizable()
                     .renderingMode(.template)
                     .frame(height: frameWidth * (image.size.height/image.size.width))
                     .bulletStyle()
-            } else {
-                Image(systemName: imageName)
+            }
+#elseif os(macOS)
+            if let name = imageName, let image = NSImage(named: NSImage.Name(name)) {
+                Image(nsImage: image)
+                    .resizable()
+                    .renderingMode(.template)
+                    .frame(height: frameWidth * (CGFloat(image.size.height)/CGFloat(image.size.width)))
+                    .bulletStyle()
+            }
+#endif
+            if let system = systemName {
+                Image(systemName: system)
                     .renderingMode(.template)
                     .bulletStyle()
                     .font(.title)
@@ -51,20 +73,6 @@ public struct BulletPointView: View {
     }
 }
 
-struct BulletPointView_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack (alignment: .leading){
-            BulletPointView(imageName: "square.and.pencil")
-            BulletPointView(imageName: "hare.fill")
-            BulletPointView(imageName: "circle.fill")
-            BulletPointView(imageName: "car.2.fill")
-            BulletPointView(imageName: "switch.2")
-            BulletPointView(imageName: "ellipsis")
-        }.padding()
-    }
-}
-
-
 struct Bullet: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -80,3 +88,17 @@ extension View {
     }
 }
 
+#if DEBUG
+struct BulletPointView_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack (alignment: .leading){
+            BulletPointView(systemName: "square.and.pencil")
+            BulletPointView(systemName: "hare.fill")
+            BulletPointView(systemName: "circle.fill")
+            BulletPointView(systemName: "car.2.fill")
+            BulletPointView(systemName: "switch.2")
+            BulletPointView(systemName: "ellipsis")
+        }.padding()
+    }
+}
+#endif
