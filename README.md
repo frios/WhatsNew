@@ -3,7 +3,7 @@
 This package is a simple way of adding What's New pages to your app. The pages
 are dynamically created based on the number of items passed to the WhatsNewView.
 
-This framework supports iOS, iPadOS, tv)S (15.0 and above) and macOS (12.0 and above).
+This framework supports iOS, iPadOS, tvOS (15.0 and above) and macOS (12.0 and above).
 
 ## How to use:
 
