@@ -30,7 +30,7 @@ public struct WhatsNewView<Content: View>: View {
             VStack (alignment: .center) {
                 Text(String(format:NSLocalizedString("What's New\nin %@", bundle: bundle, comment: "Dialog Title"), appName))
                     .fontWeight(.bold)
-                if showVersion, let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                if showVersion, let version = Bundle.main.infoDictionary?["CFBundleLongVersionString"] as? String {
                     Text("v\(version)")
                         .font(.footnote)
                         .padding(.top)
