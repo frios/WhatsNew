@@ -20,6 +20,9 @@ struct PageView: View {
             BulletPointView(title: "We now have SEARCH!!!",
                             systemName: "paintbrush.fill",
                             text: "Search to find books that have been on previous best seller lists.")
+            BulletPointView(title: "We now have OTHER STUFF!!!",
+                            systemName: "ant",
+                            text: "Search to find books that have been on previous best seller lists.")
             BulletPointView(title: "More bugs squashed.",
                             imageName: "Truck",
                             text: "And the hits keep coming")

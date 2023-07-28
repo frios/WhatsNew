@@ -60,14 +60,16 @@ public struct BulletPointView: View {
                     .bulletStyle()
                     .font(.title)
             }
-             VStack (alignment: .leading, spacing: 4){
+            VStack (alignment: .leading, spacing: 4){
                 Text(title)
                     .fontWeight(.semibold)
                 Text(text)
                     .foregroundColor(.secondary)
             }
             .multilineTextAlignment(.leading)
+            .fixedSize(horizontal: false, vertical: true)
             .font(.subheadline)
+            .padding(.leading, 4)
             .padding(.bottom, 6)
         }
     }
@@ -91,13 +93,15 @@ extension View {
 #if DEBUG
 struct BulletPointView_Previews: PreviewProvider {
     static var previews: some View {
-        VStack (alignment: .leading){
-            BulletPointView(systemName: "square.and.pencil")
-            BulletPointView(systemName: "hare.fill")
-            BulletPointView(systemName: "circle.fill")
-            BulletPointView(systemName: "car.2.fill")
-            BulletPointView(systemName: "switch.2")
-            BulletPointView(systemName: "ellipsis")
+        ScrollView {
+            VStack (alignment: .leading){
+                BulletPointView(systemName: "square.and.pencil")
+                BulletPointView(systemName: "hare.fill")
+                BulletPointView(systemName: "circle.fill")
+                BulletPointView(systemName: "car.2.fill")
+                BulletPointView(systemName: "switch.2")
+                BulletPointView(systemName: "ellipsis")
+            }
         }.padding()
     }
 }
