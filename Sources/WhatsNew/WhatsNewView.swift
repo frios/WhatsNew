@@ -12,17 +12,22 @@ public struct WhatsNewView<Content: View>: View {
     
     @Environment(\.presentationMode) var presentationMode
 
-    let appName: String = Bundle.main.localizedInfoDictionary?["CFBundleDisplayName"] as? String ?? "My App"
+    var appName: String
     let multiPage: Bool
     let showVersion: Bool
     let content: Content
     
     private let bundle = Bundle.module
     
-    public init(multiPage: Bool = true, showVersion: Bool = true, @ViewBuilder contentProvider: () -> Content) {
+    public init(multiPage: Bool = true, showVersion: Bool = true, appName: String? = nil, @ViewBuilder contentProvider: () -> Content) {
         self.multiPage = multiPage
         self.showVersion = showVersion
         self.content = contentProvider()
+        if let appName = appName {
+            self.appName = appName
+        } else {
+            self.appName = Bundle.main.localizedInfoDictionary?["CFBundleDisplayName"] as? String ?? "My App"
+        }
     }
         
     public var body: some View {
@@ -70,7 +75,7 @@ public struct WhatsNewView<Content: View>: View {
 #if DEBUG
 struct WhatsNewView_Previews: PreviewProvider {
     static var previews: some View {
-        WhatsNewView(multiPage: false) {
+        WhatsNewView(multiPage: false, appName: "Full App Name") {
             VStack (alignment: .leading) {
                 BulletPointView(title: "New feature",
                                 systemName: "circle.fill",
