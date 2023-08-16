@@ -66,6 +66,7 @@ public struct BulletPointView: View {
                 Text(text)
                     .foregroundColor(.secondary)
             }
+            .textSelection(.enabled)
             .multilineTextAlignment(.leading)
             .fixedSize(horizontal: false, vertical: true)
             .font(.subheadline)

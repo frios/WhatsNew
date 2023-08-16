@@ -38,6 +38,7 @@ public struct WhatsNewView<Content: View>: View {
                 if showVersion, let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
                     Text("v\(version)")
                         .font(.footnote)
+                        .textSelection(.enabled)
                         .padding(.top)
                 }
             }

@@ -12,25 +12,27 @@ struct PageView: View {
     let page: Int
     
     var body: some View {
-        VStack (alignment: .leading, spacing: 10){
-            Text("This is page \(page)")
-                .font(.title)
-                .multilineTextAlignment(.center)
-            
-            BulletPointView(title: "We now have SEARCH!!!",
-                            systemName: "paintbrush.fill",
-                            text: "Search to find books that have been on previous best seller lists.")
-            BulletPointView(title: "We now have OTHER STUFF!!!",
-                            systemName: "ant",
-                            text: "Search to find books that have been on previous best seller lists.")
-            BulletPointView(title: "More bugs squashed.",
-                            imageName: "Truck",
-                            text: "And the hits keep coming")
-            
-            Spacer()
+        ScrollView {
+            VStack (alignment: .leading, spacing: 10){
+                Text("This is page \(page)")
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                
+                BulletPointView(title: "We now have SEARCH!!!",
+                                systemName: "paintbrush.fill",
+                                text: "Search to find books that have been on previous best seller lists.")
+                BulletPointView(title: "We now have OTHER STUFF!!!",
+                                systemName: "ant",
+                                text: "Search to find books that have been on previous best seller lists.")
+                BulletPointView(title: "More bugs squashed.",
+                                imageName: "Truck",
+                                text: "And the hits keep coming")
+                
+                Spacer()
+            }
+            .padding()
+            .accentColor(Color.red)
         }
-        .padding()
-        .accentColor(Color.red)
     }
 }
 
