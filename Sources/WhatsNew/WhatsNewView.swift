@@ -15,13 +15,15 @@ public struct WhatsNewView<Content: View>: View {
     var appName: String
     let multiPage: Bool
     let showVersion: Bool
+    let showBuild: Bool
     let content: Content
     
     private let bundle = Bundle.module
     
-    public init(multiPage: Bool = true, showVersion: Bool = true, appName: String? = nil, @ViewBuilder contentProvider: () -> Content) {
+    public init(multiPage: Bool = true, showVersion: Bool = true, showBuild: Bool = true, appName: String? = nil, @ViewBuilder contentProvider: () -> Content) {
         self.multiPage = multiPage
         self.showVersion = showVersion
+        self.showBuild = showBuild
         self.content = contentProvider()
         if let appName = appName {
             self.appName = appName
@@ -35,8 +37,8 @@ public struct WhatsNewView<Content: View>: View {
             VStack (alignment: .center) {
                 Text(String(format:NSLocalizedString("What's New\nin %@", bundle: bundle, comment: "Dialog Title"), appName))
                     .fontWeight(.bold)
-                if showVersion, let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,  let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String{
-                    Text("v\(version).\(build)")
+                if showVersion, let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,  let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+                    Text(verbatim: showBuild ? "v\(version).\(build)" : "v\(version)")
                         .font(.footnote)
                         .textSelection(.enabled)
                         .padding(.top)
