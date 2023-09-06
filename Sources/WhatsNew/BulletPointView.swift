@@ -11,28 +11,28 @@ import SwiftUI
 
 let frameWidth = 50.0
 
-public struct BulletPointView: View {
+public struct BulletPointView<Content: View>: View {
     let title: String
     let imageName: String?
     let systemName: String?
-    let text : String
+    let content: Content
     
     public init(title: String = "New feature",
                 imageName: String = "circle.fill",
-                text: String = "This is a new feature for this app. And this text should wrap.") {
+                @ViewBuilder content: () -> Content) {
         self.title = title
         self.imageName = imageName
         self.systemName = nil
-        self.text = text
+        self.content = content()
     }
     
     public init(title: String = "New feature",
                 systemName: String = "circle.fill",
-                text: String = "This is a new feature for this app with a system icon. And this text should wrap.") {
+                @ViewBuilder content: () -> Content) {
         self.title = title
         self.imageName = nil
         self.systemName = systemName
-        self.text = text
+        self.content = content()
     }
 
     public var body: some View {
@@ -63,7 +63,7 @@ public struct BulletPointView: View {
             VStack (alignment: .leading, spacing: 4){
                 Text(title)
                     .fontWeight(.semibold)
-                Text(text)
+                content
                     .foregroundColor(.secondary)
             }
             .textSelection(.enabled)
@@ -96,12 +96,24 @@ struct BulletPointView_Previews: PreviewProvider {
     static var previews: some View {
         ScrollView {
             VStack (alignment: .leading){
-                BulletPointView(systemName: "square.and.pencil")
-                BulletPointView(systemName: "hare.fill")
-                BulletPointView(systemName: "circle.fill")
-                BulletPointView(systemName: "car.2.fill")
-                BulletPointView(systemName: "switch.2")
-                BulletPointView(systemName: "ellipsis")
+                BulletPointView(systemName: "square.and.pencil") {
+                    Text("Bullet point 1")
+                }
+                BulletPointView(systemName: "hare.fill") {
+                    Text("Bullet point 2")
+                }
+                BulletPointView(systemName: "circle.fill") {
+                    Text("Bullet point 3")
+                }
+                BulletPointView(systemName: "car.2.fill") {
+                    Text("Bullet point 4")
+                }
+                BulletPointView(systemName: "switch.2") {
+                    Text("Bullet point 5")
+                }
+                BulletPointView(systemName: "ellipsis") {
+                    Text("Bullet point 6")
+                }
             }
         }.padding()
     }

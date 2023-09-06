@@ -79,14 +79,17 @@ struct WhatsNewView_Previews: PreviewProvider {
         WhatsNewView(multiPage: false, appName: "Full App Name") {
             VStack (alignment: .leading) {
                 BulletPointView(title: "New feature",
-                                systemName: "circle.fill",
-                                text: "This is a new feature for this app. And this text should wrap.")
+                                systemName: "circle.fill") {
+                    Text("This is a new feature for this app. And this text should wrap.")
+                }
                 BulletPointView(title: "New feature",
-                                systemName: "square.fill",
-                                text: "This is a new feature for this app. And this text should wrap.")
+                                systemName: "square.fill") {
+                    Text("This is a new feature for this app. And this text should wrap.")
+                }
                 BulletPointView(title: "New feature",
-                                systemName: "triangle.fill",
-                                text: "This is a new feature for this app. And this text should wrap.")
+                                systemName: "triangle.fill") {
+                    Text("This is a new feature for this app. And this text should wrap.")
+                }
             }
         }
     }

@@ -19,14 +19,18 @@ struct PageView: View {
                     .multilineTextAlignment(.center)
                 
                 BulletPointView(title: "We now have SEARCH!!!",
-                                systemName: "paintbrush.fill",
-                                text: "Search to find books that have been on previous best seller lists.")
+                                systemName: "paintbrush.fill") {
+                    Text("Search to find books that have been on previous best seller lists.")
+                }
                 BulletPointView(title: "We now have OTHER STUFF!!!",
-                                systemName: "ant",
-                                text: "Search to find books that have been on previous best seller lists.")
+                                systemName: "ant") {
+                    Text("Search to find books that have been on previous best seller lists.")
+                    Toggle("Toggle", isOn: .constant(true))
+                }
                 BulletPointView(title: "More bugs squashed.",
-                                imageName: "Truck",
-                                text: "And the hits keep coming")
+                                imageName: "Truck") {
+                    Text("And the hits keep coming")
+                }
                 
                 Spacer()
             }
