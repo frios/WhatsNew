@@ -12,17 +12,24 @@ public struct WhatsNewView<Content: View>: View {
     
     @Environment(\.presentationMode) var presentationMode
 
-    let appName: String = Bundle.main.localizedInfoDictionary?["CFBundleDisplayName"] as? String ?? "My App"
+    var appName: String
     let multiPage: Bool
     let showVersion: Bool
+    let showBuild: Bool
     let content: Content
     
     private let bundle = Bundle.module
     
-    public init(multiPage: Bool = true, showVersion: Bool = true, @ViewBuilder contentProvider: () -> Content) {
+    public init(multiPage: Bool = true, showVersion: Bool = true, showBuild: Bool = true, appName: String? = nil, @ViewBuilder contentProvider: () -> Content) {
         self.multiPage = multiPage
         self.showVersion = showVersion
+        self.showBuild = showBuild
         self.content = contentProvider()
+        if let appName = appName {
+            self.appName = appName
+        } else {
+            self.appName = Bundle.main.localizedInfoDictionary?["CFBundleDisplayName"] as? String ?? "My App"
+        }
     }
         
     public var body: some View {
@@ -30,9 +37,10 @@ public struct WhatsNewView<Content: View>: View {
             VStack (alignment: .center) {
                 Text(String(format:NSLocalizedString("What's New\nin %@", bundle: bundle, comment: "Dialog Title"), appName))
                     .fontWeight(.bold)
-                if showVersion, let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,  let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String{
-                    Text("v\(version).\(build)")
+                if showVersion, let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,  let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+                    Text(verbatim: showBuild ? "v\(version).\(build)" : "v\(version)")
                         .font(.footnote)
+                        .textSelection(.enabled)
                         .padding(.top)
                 }
             }
@@ -70,17 +78,20 @@ public struct WhatsNewView<Content: View>: View {
 #if DEBUG
 struct WhatsNewView_Previews: PreviewProvider {
     static var previews: some View {
-        WhatsNewView(multiPage: false) {
+        WhatsNewView(multiPage: false, appName: "Full App Name") {
             VStack (alignment: .leading) {
                 BulletPointView(title: "New feature",
-                                systemName: "circle.fill",
-                                text: "This is a new feature for this app. And this text should wrap.")
+                                systemName: "circle.fill") {
+                    Text("This is a new feature for this app. And this text should wrap.")
+                }
                 BulletPointView(title: "New feature",
-                                systemName: "square.fill",
-                                text: "This is a new feature for this app. And this text should wrap.")
+                                systemName: "square.fill") {
+                    Text("This is a new feature for this app. And this text should wrap.")
+                }
                 BulletPointView(title: "New feature",
-                                systemName: "triangle.fill",
-                                text: "This is a new feature for this app. And this text should wrap.")
+                                systemName: "triangle.fill") {
+                    Text("This is a new feature for this app. And this text should wrap.")
+                }
             }
         }
     }

@@ -9,19 +9,20 @@ This framework supports iOS, iPadOS, tvOS (15.0 and above) and macOS (12.0 and a
 
 1) In your target's General Settings, make sure your app Display Name is set as you want it.
 
-2) Create the content for each What's New page you want displayed. You can use What's New `BulletPointView` struct to add bullet points with images, bold titles and explanatory text. The component will use whatever accent color you set for the page.
+2) Create the content for each What's New page you want displayed. You can use What's New `BulletPointView` struct to add bullet points with images, bold titles and explanatory text (or any other view). The component will use whatever accent color you set for the page.
 
 ```swift
 struct WhatsNewPageView: View {
     var body: some View {
         VStack (alignment: .leading, spacing: 10){
             BulletPointView(title: "We now have SEARCH!!!",
-                            imageName: "paintbrush.fill",
-                            text: "Search to find books that have been on previous best seller lists.")
+                            systemName: "paintbrush.fill") {
+                Text("Search to find books that have been on previous best seller lists.")
+            }
             BulletPointView(title: "More bugs squashed.",
-                            imageName: "myTruck",
-                            text: "And the hits keep coming")
-                            
+                            imageName: "myTruck") {
+                Text("And the hits keep coming")
+            }
             Spacer()
         }
         .padding()
