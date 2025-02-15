@@ -12,12 +12,12 @@ import SwiftUI
 let frameWidth = 50.0
 
 public struct BulletPointView<Content: View>: View {
-    let title: String
+    let title: LocalizedStringKey
     let imageName: String?
     let systemName: String?
     let content: Content
     
-    public init(title: String = "New feature",
+    public init(title: LocalizedStringKey = "New feature",
                 imageName: String = "circle.fill",
                 @ViewBuilder content: () -> Content) {
         self.title = title
@@ -26,7 +26,7 @@ public struct BulletPointView<Content: View>: View {
         self.content = content()
     }
     
-    public init(title: String = "New feature",
+    public init(title: LocalizedStringKey = "New feature",
                 systemName: String = "circle.fill",
                 @ViewBuilder content: () -> Content) {
         self.title = title
